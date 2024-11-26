@@ -1,19 +1,28 @@
 {
   "manifest_version": 2,
-  "name": "vid-speed-control",
+  "name": "Video Speed Ctrl",
   "version": "1.0",
-
   "description": "Set video speed once and have it carry over between websites.",
-
   "icons": {
-    "default": "icons/bolt-icon.png"
+    "18": "icons/bolt-icon.png"
   },
-
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage"
+  ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["vid-speed-control.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "popup/vidspeed.js"
+      ]
     }
-  ]
+  ],
+  "browser_action": {
+    "default_icon": "icons/bolt-icon.png",
+    "default_popup": "popup/vidspeed.html"
+  }
 }
-
