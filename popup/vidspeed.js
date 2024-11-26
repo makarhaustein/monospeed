@@ -16,7 +16,6 @@ function storageAccessed(stored) {
     On popup start, check whether we have stored settings.
     If we don't, then set speed to 1.
     */
-
     let speed;
 
     if (!stored.speed) {
@@ -26,46 +25,53 @@ function storageAccessed(stored) {
         speed = stored.speed;
     }
 
-    function updateVideoSpeed() {
-        videos = document.querySelectorAll('video');
+    function updateSpeedCheck(tabs) {
         if (speed <= 0.1) {
             speed = 0.1;
         }
         if (speed >= 8) {
             speed = 8;
         }
-        for (let i = 0; i < videos.length; i++) {
-            videos[i].playbackRate = speed;
-        }
+        console.log(speed);
+        browser.tabs.sendMessage(tabs[0].id, { speed: speed });
         browser.storage.local.set({ speed: speed });
+    }
+
+    function getTabs() {
+        return browser.tabs.query({ active: true, currentWindow: true });
     }
 
     speedField.onclick = () => {
         speed = 1;
-        updateVideoSpeed();
+        getTabs().then(updateSpeedCheck, onError);
     };
 
     sminusBtn.onclick = () => {
         speed -= 0.1;
-        updateVideoSpeed();
+        getTabs().then(updateSpeedCheck, onError);
     };
 
     minusBtn.onclick = () => {
         speed -= 0.5;
-        updateVideoSpeed();
+        getTabs().then(updateSpeedCheck, onError);
     };
 
     plusBtn.onclick = () => {
         speed += 0.5;
-        updateVideoSpeed();
+        getTabs().then(updateSpeedCheck, onError);
     };
 
     splusBtn.onclick = () => {
         speed += 0.1;
-        updateVideoSpeed();
+        getTabs().then(updateSpeedCheck, onError);
     };
-    console.log(speed);
+    getTabs().then(updateSpeedCheck, onError);
 }
 
-const gettingStoredSettings = browser.storage.local.get();
-gettingStoredSettings.then(storageAccessed, onError);
+function getStoredSetting() {
+    const gettingStoredSettings = browser.storage.local.get();
+    gettingStoredSettings.then(storageAccessed, onError);
+}
+const executing = browser.tabs
+    .executeScript({ file: "/background.js" })
+    .then(getStoredSetting, onError);
