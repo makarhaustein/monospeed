@@ -32,13 +32,17 @@ function storageAccessed(stored) {
         if (speed >= 8) {
             speed = 8;
         }
-        console.log(speed);
-        browser.tabs.sendMessage(tabs[0].id, { speed: speed });
+        for (const tab of tabs) {
+            browser.tabs.sendMessage(tab.id, { speed: speed });
+        }
         browser.storage.local.set({ speed: speed });
+        console.log(speed);
+        console.log(tabs.length);
+
     }
 
     function getTabs() {
-        return browser.tabs.query({ active: true, currentWindow: true });
+        return browser.tabs.query({ currentWindow: true });
     }
 
     speedField.onclick = () => {
