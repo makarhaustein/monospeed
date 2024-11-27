@@ -36,9 +36,6 @@ function storageAccessed(stored) {
             browser.tabs.sendMessage(tab.id, { speed: speed });
         }
         browser.storage.local.set({ speed: speed });
-        console.log(speed);
-        console.log(tabs.length);
-
     }
 
     function getTabs() {
@@ -72,10 +69,5 @@ function storageAccessed(stored) {
     getTabs().then(updateSpeedCheck, onError);
 }
 
-function getStoredSetting() {
-    const gettingStoredSettings = browser.storage.local.get();
-    gettingStoredSettings.then(storageAccessed, onError);
-}
-const executing = browser.tabs
-    .executeScript({ file: "/background.js" })
-    .then(getStoredSetting, onError);
+const gettingStoredSettings = browser.storage.local.get();
+gettingStoredSettings.then(storageAccessed, onError);

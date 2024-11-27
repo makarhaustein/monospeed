@@ -17,7 +17,7 @@
         "<all_urls>"
       ],
       "js": [
-        "popup/vidspeed.js"
+        "background.js"
       ]
     }
   ],
