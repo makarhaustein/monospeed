@@ -7,7 +7,6 @@
     "18": "icons/bolt-icon.png"
   },
   "permissions": [
-    "activeTab",
     "tabs",
     "storage"
   ],

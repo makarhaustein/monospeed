@@ -1,7 +1,3 @@
-/*
-Generic error logger.
-*/
-
 function onError(e) {
     console.error(e);
 }
@@ -67,6 +63,7 @@ function storageAccessed(stored) {
         speed += 0.1;
         getTabs().then(updateSpeedCheck, onError);
     };
+    // Just because we can
     getTabs().then(updateSpeedCheck, onError);
 }
 
