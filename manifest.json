@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "Video Speed Ctrl",
+  "name": "Monospeed",
   "version": "1.0",
-  "description": "Set video speed once and have it carry over between websites.",
+  "description": "Set video speed once, have it applied everywhere.",
   "icons": {
-    "18": "icons/bolt-icon.png"
+    "18": "icons/m-icon.png"
   },
   "permissions": [
     "tabs",
@@ -21,7 +21,6 @@
     }
   ],
   "browser_action": {
-    "default_icon": "icons/bolt-icon.png",
     "default_popup": "popup/vidspeed.html"
   }
 }
