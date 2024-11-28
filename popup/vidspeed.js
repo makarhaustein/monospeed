@@ -35,7 +35,7 @@ function storageAccessed(stored) {
         for (const tab of tabs) {
             browser.tabs.sendMessage(tab.id, { speed: speed });
         }
-        speedField.innerHTML = speed.toFixed(1);
+        speedField.innerHTML = "&#215;" + speed.toFixed(1);
         browser.storage.local.set({ speed: speed });
     }
 
