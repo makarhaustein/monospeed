@@ -9,6 +9,11 @@ HOOK_CONTENT="#!/bin/bash
 # Do not commit on error when zipping
 set -e
 
+if ! git status | grep -q 'src'; then
+    echo 'The .xpi is up-to-date.'
+    exit 0
+fi
+
 echo 'Creating .xpi file'
 
 (cd src && zip -r ../monospeed@m.haustein.xpi .)
