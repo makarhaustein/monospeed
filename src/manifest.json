@@ -17,7 +17,8 @@
       ],
       "js": [
         "background.js"
-      ]
+      ],
+      "all_frames": true
     }
   ],
   "browser_action": {
