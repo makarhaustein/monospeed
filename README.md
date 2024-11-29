@@ -1,2 +1,2 @@
-# vid-speed-control
-Firefox extension for controlling the speed of a video better.
+# Monospeed
+Firefox extension to set video speed once, have it remembered and applied everywhere.
