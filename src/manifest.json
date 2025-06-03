@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Monospeed",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Set video speed once, have it applied everywhere.",
   "icons": {
     "18": "icons/m-icon.png"
