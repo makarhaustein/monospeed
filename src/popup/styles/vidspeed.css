@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'JetBrainsNF';
+  font-weight: normal;
+  font-style: normal;
+  src: url('JetBrainsMonoNerdFont-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-style: normal;
+  src: url('Roboto-Regular.ttf');
+}
+html,
+body {
+    font-family: 'JetBrainsNF', sans-serif;
+    width: 120px;
+    background-color: #202124;
+}
+
+
+#popup-content div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#speed-field {
+    font-family: 'JetBrainsNF', sans-serif;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 30px;
+    color: #8B8B8F;
+    background-color: transparent;
+}
+
+
+#controls button {
+    margin: 2px;
+    padding: 5px;
+    border: none;
+    color: white;
+    background-color: #38393D;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 2px;
+}
+
+
+#small-minus-btn,
+#small-plus-btn {
+    font-family: 'JetBrainsNF', sans-serif;
+    height: 22px;
+    width: 22px;
+    border-radius: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+#minus-btn,
+#plus-btn {
+    font-family: 'JetBrainsNF', sans-serif;
+    height: 28px;
+    width: 28px;
+    font-size: 20px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+
+.hidden {
+    display: none;
+}
